@@ -1,4 +1,8 @@
-for(var i=0;i<=10;i++){
-	
-	console.log(     Math.floor(Math.random() * (9 - 1 + 1)) + 1      )
-}
+var numero = require('./numero')
+var converter = new numero();
+
+
+var already = converter.convert('aya1993@projectcodex.co')
+console.log(already+'\n\n')
+
+console.log(converter.revert(already)+'\n\n')
