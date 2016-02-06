@@ -7,13 +7,14 @@ module.exports = function(){
 			}
 			return '';
 	}
+	/** Convert string / text to numerical sequence **/
 	this.convert = function(text){		
 	    
 		var characters = text.split('');
 	    var encoded_msg='';
 	    characters.forEach(function(letter){
 			letter=letter.toLowerCase();
-			if(!isNaN(letter)){
+			if(!isNaN(letter)){ // if the its a number in the string use '+' to symbolise the digit e.g if 2 ++ or 3 +++
 				var chars='';
 				for(var i=0;i<parseInt(letter);i++)
 				{
@@ -40,7 +41,7 @@ module.exports = function(){
 				}
 				
 			}
-			if(!found){
+			if(!found){ //if the letter is not a digit i.e a char e.g @ or % just add it as it is
 				encoded_msg+=letter;
 				encoded_msg+=endChar(characters,letter);
 			}
@@ -48,10 +49,9 @@ module.exports = function(){
 		})
 		return encoded_msg;
 	}
-
+	/** revert numerical sequence back to a string **/
 	this.revert=function(numero){
 		var characters=numero.split('0');
-		console.log(characters)
 		var decoded_word=''
 		characters.forEach(function(number){
 			if(number.indexOf('+')!=-1){
