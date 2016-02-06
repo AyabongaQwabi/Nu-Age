@@ -1,0 +1,28 @@
+{
+  "name": "Numero",
+  "version": "0.0.0",
+  "description": "Text to numrical sequence converter",
+  "main": "numero.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^2.4.5"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AyabongaQwabi/numero.git"
+  },
+  "keywords": [
+    "numero"
+  ],
+  "author": "Ayabonga Qwabi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AyabongaQwabi/numero/issues"
+  }
+}
