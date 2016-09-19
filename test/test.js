@@ -5,7 +5,8 @@ describe('Numero Text Converter',function(){
 	it('should convert string to numerical sequence',function(){
 
 		var sequencer = new numero();
-		var mypassword = 'securit@s11sky'
+		var mypassword = 'saf3key@word!'
+		console.log(sequencer.convert(mypassword))
 		assert.equal(('702301830718063803810760@070+0+0704709').indexOf('@'),sequencer.convert(mypassword).indexOf('@'))
 		assert.equal(('702301830718063803810760@070+0+0704709').length,sequencer.convert(mypassword).length)
 		assert.equal(('702301830718063803810760@070+0+0704709').substring(5,6),sequencer.convert(mypassword).substring(5,6))
