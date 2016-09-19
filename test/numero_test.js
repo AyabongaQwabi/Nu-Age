@@ -1,6 +1,6 @@
 var numero = require('../numero');
 var sequencer = new numero();
- var mypassword = 'my email is ayabonga@projectcodex.co please help with #punani I live in 1541'
+ var mypassword = 'my email is ayabonga@projectcodex.co  I live in 1541'
 //var mypassword = 'i am aya'
 var seqd = sequencer.convert(mypassword)
 console.log(seqd)
