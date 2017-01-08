@@ -1,5 +1,4 @@
 module.exports = function() {
-    var numero = require('./numero')
     this.numerise = function(str) {
         str = str.split(' ');
         var converted = '';
