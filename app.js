@@ -1,8 +1,6 @@
-var express = require('express');
-var handlebars = require('express-handlebars');
-var numero = require('./numero');
-var conceal = require('./conceal');
-var minx = require('./minx'),
+var express = require('express'),
+		handlebars = require('express-handlebars'),
+ 		conceal = require('./conceal'),
     bodyParser = require('body-parser');
 
 
@@ -23,17 +21,17 @@ app.get('/', function(req, res) {
 
 app.post('/conceal', function(req, res) {
     var text = req.body.data;
-    var c = new conceal();
+    var concealer = new conceal();
     if (text == '') {
         res.send('...')
     } else {
-        res.send(c.conceal(text))
+        res.send(concealer.conceal(text))
     }
 
 })
 app.post('/unseal', function(req, res) {
     var text = req.body.data;
-    var c = new conceal();
+    var concealer = new conceal();
     if (text == '') {
         res.send('...')
     } else if (text.indexOf('+') == (-1)) {
@@ -42,7 +40,7 @@ app.post('/unseal', function(req, res) {
         })
     } else {
 
-        res.send(c.unseal(text))
+        res.send(concealer.unseal(text))
     }
 
 })
