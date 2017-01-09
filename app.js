@@ -20,10 +20,10 @@ app.get('/', function(req, res) {
 })
 
 app.post('/conceal', function(req, res) {
-    var text = req.body.text;		
+    var text = req.body.text;
     var concealer = new conceal();
     if (text == '') {
-        res.render('index',{action:'conceal',method:'post',message:"Empty text",err:true})
+        res.render('index',{action:'conceal',method:'post',err:"Empty text"})
     } else {
 				res.render('index',{action:'unseal',method:'post',message:concealer.conceal(text)})
     }
