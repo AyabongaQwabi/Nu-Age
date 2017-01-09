@@ -16,21 +16,21 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
-    res.render('index')
+    res.render('index',{action:'conceal',method:'post',message:''})
 })
 
 app.post('/conceal', function(req, res) {
-    var text = req.body.data;
+    var text = req.body.text;		
     var concealer = new conceal();
     if (text == '') {
-        res.send('...')
+        res.render('index',{action:'conceal',method:'post',message:"Empty text",err:true})
     } else {
-        res.send(concealer.conceal(text))
+				res.render('index',{action:'unseal',method:'post',message:concealer.conceal(text)})
     }
 
 })
 app.post('/unseal', function(req, res) {
-    var text = req.body.data;
+    var text = req.body.text;
     var concealer = new conceal();
     if (text == '') {
         res.send('...')
@@ -39,8 +39,7 @@ app.post('/unseal', function(req, res) {
             err: "Error String entered is invalid."
         })
     } else {
-
-        res.send(concealer.unseal(text))
+				res.render('index',{action:'conceal',method:'post',message:concealer.unseal(text)})
     }
 
 })
