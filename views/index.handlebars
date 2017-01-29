@@ -1,17 +1,33 @@
+<div class='center'>
+    <div class='row'>
+        <div class='col s12 m12 container center'>
+            <div class='col s12 m12'>
+                <h3> Nu-age </h3>
+            </div>
+            <div class='col s12 m12'>
+                <h6><b> Alpha numeric text encryption Algorithm</b> </h6>
+            </div>
+            <div class='col s12 m12'>
+                <h6 class='grey-text text-darken-2 flow-text'>Previously known as Santa and Numero the Nu-age text encryption program utilises an alpha numeric text encryption algorithm that converts words and numbers into a sequence of '+' characters</h6>
+            </div>
+            <div class='col s12 m12'>
+                <h6> Try it out below </h6>
+            </div>
 
 
-<div class='card black center'>
-	<div class='row'>
-		<div class='col s12 m12 container center'>
-			<img src='img/SantaClaus_Cool.png'>
-			
-      <h5 class='grey-text text-darken-2'><b>++++++ +++++ ++++++  +++++++ ++  +++++ ++++++  ++ ++++++  ++ +++   +++++++ ++++++++  +++++++ ++++++  ++++++++ +++++++ +  ++ +++   +++ +++++  ++ ++  ++++++ +++ +  ++ ++++++  </b> </h5>
-			<textarea type='text' id='hiroshima' class='box  card-panel black white-text'></textarea>
-			<div class='col s12 m12'>
-        <button class='btn white black-text encrypt '> &nbsp </button>
-        <button class='btn red decrypt'> &nbsp </button>
-      </div>
-      <textarea type='text' id='nagasaki' class='box card-panel black white-text' ></textarea>
+                <div class='col s12 m12'>
+                    <form action= {{action}} method= {{method}}>
+                        <div class='row'>
+                            <textarea type='text' name='text' id='conceal' class='box card-panel black-text' placeholder= {{err}}>{{ message}}</textarea>
+                        </div>
+                        <div class='row'>
+                            <div class='container'>
+                                <input class='btn' type='submit' value= {{action}}> </input>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+        </div>
     </div>
-	</div>
 </div>

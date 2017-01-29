@@ -1,45 +1,48 @@
-var express =require('express');
-var handlebars = require('express-handlebars');
-var numero = require('./numero');
-var conceal = require('./conceal');
-var minx = require('./minx'),
+
+var express = require('express'),
+		handlebars = require('express-handlebars'),
+ 		conceal = require('./conceal'),
+
     bodyParser = require('body-parser');
 
 
 var app = express();
 app.use(express.static('public'))
-app.engine('handlebars',handlebars({defaultLayout:'main'}))
-app.set('view engine','handlebars')
-app.use(bodyParser.urlencoded({ extended: false }));
+app.engine('handlebars', handlebars({
+    defaultLayout: 'main'
+}))
+app.set('view engine', 'handlebars')
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 app.use(bodyParser.json());
 
-app.get('/', function(req,res){
-	res.render('index')
+app.get('/', function(req, res) {
+    res.render('index',{action:'conceal',method:'post',message:''})
 })
+app.post('/conceal', function(req, res) {
+    var text = req.body.text;
+    var concealer = new conceal();
+    if (text == '') {
+        res.render('index',{action:'conceal',method:'post',err:"Empty text"})
+    } else {
+				res.render('index',{action:'unseal',method:'post',message:concealer.conceal(text)})
+    }
 
-app.post('/hiroshima',function(req,res){
-	var text = req.body.data;
-	var c = new conceal();
-	if(text==''){
-		res.send('...')
-	}
-	else{
-        	res.send(c.conceal(text))
-	}
 })
+app.post('/unseal', function(req, res) {
+    var text = req.body.text;
+    var concealer = new conceal();
+    if (text == '') {
+        res.send('...')
+    } else if (text.indexOf('+') == (-1)) {
+        res.send({
+            err: "Error String entered is invalid."
+        })
+    } else {
+				res.render('index',{action:'conceal',method:'post',message:concealer.unseal(text)})
+    }
 
-app.post('/nagasaki',function(req,res){
-	var text = req.body.data;
-	var c = new conceal();
-	if(text==''){
-		res.send('...')
-	}
-	else if (text.indexOf('+') == (-1)) {
-		res.send({err : "Santa doesn't give naughty kids presents ..."})
-	}
-	else{
-		res.send(c.unseal(text))
-	}
 
 })
 

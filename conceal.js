@@ -1,8 +1,8 @@
 module.exports = function() {
-    var numero = require('./numero');
+    var nu_age_sequencer = require('./nu-age');
     var minx = require('./minx');
     var numerise = require('./numerise');
-    var sequencer = new numero();
+    var sequencer = new nu_age_sequencer();
     var numeriser = new numerise();
     var minxer = new minx();
 
