@@ -1,6 +1,8 @@
+
 var express = require('express'),
 		handlebars = require('express-handlebars'),
  		conceal = require('./conceal'),
+
     bodyParser = require('body-parser');
 
 
@@ -18,7 +20,6 @@ app.use(bodyParser.json());
 app.get('/', function(req, res) {
     res.render('index',{action:'conceal',method:'post',message:''})
 })
-
 app.post('/conceal', function(req, res) {
     var text = req.body.text;
     var concealer = new conceal();
@@ -41,6 +42,7 @@ app.post('/unseal', function(req, res) {
     } else {
 				res.render('index',{action:'conceal',method:'post',message:concealer.unseal(text)})
     }
+
 
 })
 
