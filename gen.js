@@ -1,5 +1,5 @@
 import kix from './jay';
-import gn from './.qry/gn';
+import gn from './qry/gn';
 import { fromJS } from 'immutable';
 
 const k = new kix();
